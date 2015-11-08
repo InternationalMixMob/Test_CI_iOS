@@ -1,5 +1,8 @@
 language: objective-c
 
+addons:
+  sauce_connect: true
+
 install:
   - sudo npm install -g cordova
   - sudo npm install -g ios-deploy
