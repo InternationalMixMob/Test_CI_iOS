@@ -3,6 +3,11 @@ language: objective-c
 #addons:
 #  sauce_connect: true
 
+global:
+before_install:
+# Commands to excecute before install
+- echo "Before install stage"
+
 install:
   - sudo npm install -g cordova
   - sudo npm install -g ios-deploy
