@@ -7,8 +7,9 @@ global:
 before_install:
 # Commands to excecute before install
   - echo "Before install stage"
-  - nvm install 4.1.1
-  - nvm use 4.1.1
+#  - nvm install 4.1.1
+#  - nvm use 4.1.1
+  - node -v
   - echo "END - Before install stage"
 
 install:
