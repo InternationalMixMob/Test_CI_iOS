@@ -6,13 +6,41 @@ language: objective-c
 global:
 before_install:
 # Commands to excecute before install
-- echo "Before install stage"
+  - echo "Before install stage"
+  - nvm install 4.1.1
+  - nvm use 4.1.1
+  - echo "END - Before install stage"
 
 install:
-  - sudo npm install -g cordova
-  - sudo npm install -g ios-deploy
-  - sudo npm install -g ios-sim
+  - echo "Install stage"
+  - npm i
+  - echo "END - install stage"
+#  - sudo npm install -g cordova
+#  - sudo npm install -g ios-deploy
+#  - sudo npm install -g ios-sim
+
+before_script:
+# Commands to excecute before running tests
+  - echo "Before script stage"
 
 script:
-- cd TestCIiOS
-- cordova build ios
+# Run tests
+  - echo "Running tests"
+  - npm test
+  - echo "Starting build"
+  - npm run build
+#  - cd TestCIiOS
+#  - cordova build ios
+
+after_success:
+# You can do thing after success
+  - echo "Build success"
+
+after_failure:
+# What if your test fails?
+  - echo "After failure stage"
+
+after_script:
+# Do things anyway after script/test pass or not
+  - echo "After script stage"
+
